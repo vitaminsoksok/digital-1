@@ -1,0 +1,13 @@
+사용자 권한 부여
+ - user 테이블에 author 속성을 추가, 타입은 int, 기본값 1
+ - UserVo에 int author 멤버변수/getter와 setter를 추가, 
+   toString 수정
+
+
+사용자 권한 부여 방법
+ 1. 속성의 값을 1~10사이로 지정하여 숫자가 높을수록 높은 권한을
+   가짐
+ 2. 미리 지정된 등급을 이용
+관리자 	admin
+부관리자 	subAdmin
+사용자 	user
