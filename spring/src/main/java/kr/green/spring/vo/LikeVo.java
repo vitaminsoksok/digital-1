@@ -6,6 +6,12 @@ public class LikeVo {
 	private String id;
 	private int up;
 	
+	public LikeVo(int num2, String id2) {
+		id = id2;
+		boardNum = num2;
+	}
+	public LikeVo() {}
+	
 	public int getNum() {
 		return num;
 	}
