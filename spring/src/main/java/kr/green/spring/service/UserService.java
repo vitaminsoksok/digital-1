@@ -26,4 +26,6 @@ public interface UserService {
 
 	void updateAuthor(UserVo userVo);
 
+	void updateUser(UserVo dbUser);
+
 }

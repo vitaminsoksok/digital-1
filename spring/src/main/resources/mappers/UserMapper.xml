@@ -26,6 +26,15 @@
   	update user set author = #{user.author} 
   		where id = #{user.id}
   </update>
+  <update id="updateUser">
+  	update user set
+  		pw = #{user.pw},
+  		age = #{user.age},
+  		name = #{user.name},
+  		email = #{user.email},
+  		home = #{user.home}
+  		where id = #{user.id}
+  </update>
 </mapper>
 
 

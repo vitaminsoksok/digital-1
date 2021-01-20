@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
       <label for="cotent">내용</label>
-      <textarea class="form-control" id="cotent" name="cotent" readonly>${board.content}</textarea>
+      <div>${board.content}</div>
     </div>
     
     <c:if test="${fList.size() != 0 }">
