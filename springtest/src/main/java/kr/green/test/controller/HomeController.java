@@ -1,9 +1,14 @@
 package kr.green.test.controller;
 
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.green.test.service.BoardService;
 import kr.green.test.service.UserService;
 import kr.green.test.vo.TestVo;
 import kr.green.test.vo.UserVo;
@@ -165,6 +169,60 @@ public class HomeController {
 	@ResponseBody
 	public String dupGet(String id) {
 		UserVo user = userService.getUser(id);
+		
+		JSONParser parser = new JSONParser();
+
+		 
+
+    try {
+
+           // myJson.json파일을 읽어와 Object로 파싱
+
+           Object obj = parser.parse(new FileReader("d:\\test.json"));
+
+
+
+           JSONObject jsonObject =(JSONObject) obj;
+
+
+
+           String name = (String) jsonObject.get("name");
+
+           String age = (String) jsonObject.get("age");
+
+           String company = (String) jsonObject.get("company");
+
+          
+
+           System.out.println("name:" + name);
+
+           System.out.println("age:" + age);
+
+           System.out.println("company:" + company);
+
+
+
+           // list가져오기
+
+           JSONArray msgList =(JSONArray) jsonObject.get("list");
+
+           Iterator<String>iterator = msgList.iterator();
+
+           System.out.println("**JsonList**");
+
+           while(iterator.hasNext()) {
+
+                  System.out.println(iterator.next());
+
+           }
+
+    } catch (Exception e) {
+
+           e.printStackTrace();
+
+    }
+
+		
 		if(user == null) {
 			return "possible";
 		}
